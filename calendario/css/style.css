@@ -283,6 +283,7 @@ body {
   flex-direction: column;
   padding-left: 4px;
 }
+
 .events .event {
   position: relative;
   width: 95%;
@@ -314,9 +315,10 @@ body {
   font-weight: 400;
   margin-left: 20px;
 }
+
 .events .event i {
   color: var(--primary-clr);
-  font-size: 0.5rem;
+  font-size: 1.0rem;
 }
 .events .event:hover i {
   color: #fff;
@@ -324,7 +326,7 @@ body {
 .events .event .event-time {
   font-size: 0.8rem;
   font-weight: 400;
-  color: #878895;
+  color: #ffffff;
   margin-left: 15px;
   pointer-events: none;
 }
@@ -349,6 +351,47 @@ body {
 .events .event:hover::after {
   display: flex;
 }
+.events .event .fa-circle{
+  color: #ffd500;
+}
+.events .event-complete {
+  position: relative;
+  width: 95%;
+  /* min-height: 70px; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  /* gap: 5px; */
+  padding: 0 20px;
+  padding-left: 50px;
+  color: #adafc8;
+  background: linear-gradient(90deg, #2a84b5, transparent);
+  cursor: pointer;
+  
+}
+
+
+.events .event-complete .title {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+.events .event-complete .title .event-title {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-left: 10px;
+}
+.events .event-complete .event-time {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #878895;
+  margin-left: 15px;
+  pointer-events: none;
+}
+.events .event-complete .fa-circle{
+  color: #37ff0b;
+}
+
 .add-event {
   position: absolute;
   bottom: 30px;
@@ -397,6 +440,7 @@ body {
 .add-event-wrapper.active {
   max-height: 300px;
 }
+
 .add-event-header {
   width: 100%;
   height: 50px;
@@ -415,6 +459,16 @@ body {
   color: var(--primary-clr);
 }
 .add-event-header .title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.add-event-header .add-event-input {
+  width: 95%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   font-size: 1.2rem;
   font-weight: 500;
 }
