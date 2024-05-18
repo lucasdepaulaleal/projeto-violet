@@ -1,0 +1,153 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('lavanda.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.header{
+    background-color: rgba(30, 4, 136, 0.5); /* Cor de fundo com transparência */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; 
+    height: 5vh;
+}
+
+.logo {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-style: italic;
+    padding: 2rem;
+    display: block;
+    max-width: 50px;
+    height: auto;
+}
+
+.logo img{
+width: 100%;
+max-width: 50px;
+height: auto;
+}
+
+.container {    
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 55px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.integrante {
+    text-align: center;
+    margin-bottom: 60px;
+    flex: 0 1 calc(25% - 20px);
+    max-width: calc(25% - 20px);
+    box-sizing: border-box;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 2px 2px black;
+}
+
+.integrante img {
+    width: 90px; /* Reduzindo o tamanho da imagem */
+    height: 90px; /* Mantendo a proporção da imagem */
+    border-radius: 50%; /* Transformando a imagem em um círculo */
+    margin-bottom: 10px;
+    object-fit: cover; /* Redimensionando a imagem para preencher o círculo */
+    border: 2px solid rgb(0, 0, 0); 
+    box-sizing: border-box;
+}
+
+.escrita{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 1px;
+    font-size: large;
+}
+
+.second-container {
+    background-color: hsla(283, 68%, 11%, 0.7);
+    border-radius: 50px;
+    color: white;
+    margin: 10.5%;
+    padding: 2%;
+}
+
+/*Butão de sair INICIO*/
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background-color: rgb(92, 8, 181);
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .Btn:hover {
+    width: 120px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .Btn:hover .sign {
+    width: 20%;
+    transition-duration: .3s;
+    padding-left: 5px;
+  }
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 4px;
+  }
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
+  /*Butão de sair FIM*/
