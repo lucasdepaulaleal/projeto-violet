@@ -17,6 +17,7 @@ const calendario = document.querySelector(".calendar"),
   horaFimAdicionarEvento = document.querySelector(".event-time-to "),
   btnSubmeterAdicionarEvento = document.querySelector(".add-event-btn ");
 
+
 let hoje = new Date();
 let diaAtivo;
 let mes = hoje.getMonth();
@@ -321,94 +322,100 @@ horaFimAdicionarEvento.addEventListener("input", (e) => {
 });
 
 //adicionar evento em eventosArr
-btnSubmeterAdicionarEvento.addEventListener("click", () => {
-  const tituloEvento = tituloAdicionarEvento.value;
-  const horaInicioEvento = horaInicioAdicionarEvento.value;
-  const horaFimEvento = horaFimAdicionarEvento.value;
-  if (tituloEvento === "" || horaInicioEvento === "" || horaFimEvento === "") {
-    alert("Por favor, preencha todos os campos");
-    return;
-  }
+// btnSubmeterAdicionarEvento.addEventListener("click", () => {
+//   const tituloEvento = tituloAdicionarEvento.value;
+//   const horaInicioEvento = horaInicioAdicionarEvento.value;
+//   const horaFimEvento = horaFimAdicionarEvento.value;
+//   const nivelComplexidade = document.getElementById('mySelect').value; // Adicionar a seleção do nível de complexidade
 
-  //verificar o formato das horas
-  const horaInicioArr = horaInicioEvento.split(":");
-  const horaFimArr = horaFimEvento.split(":");
-  if (
-    horaInicioArr.length !== 2 ||
-    horaFimArr.length !== 2 ||
-    horaInicioArr[0] > 23 ||
-    horaInicioArr[1] > 59 ||
-    horaFimArr[0] > 23 ||
-    horaFimArr[1] > 59
-  ) {
-    alert("Formato de Hora Inválido");
-    return;
-  }
+//   if (tituloEvento === "" || horaInicioEvento === "" || horaFimEvento === "") {
+//     alert("Por favor, preencha todos os campos");
+//     return;
+//   }
 
-  const horaInicio = converterHora(horaInicioEvento);
-  const horaFim = converterHora(horaFimEvento);
+//   // Verificar o formato das horas
+//   const horaInicioArr = horaInicioEvento.split(":");
+//   const horaFimArr = horaFimEvento.split(":");
+//   if (
+//     horaInicioArr.length !== 2 ||
+//     horaFimArr.length !== 2 ||
+//     horaInicioArr[0] > 23 ||
+//     horaInicioArr[1] > 59 ||
+//     horaFimArr[0] > 23 ||
+//     horaFimArr[1] > 59
+//   ) {
+//     alert("Formato de Hora Inválido");
+//     return;
+//   }
 
-  //verifica se o evento
-  let eventoExiste = false;
-  eventosArr.forEach((evento) => {
-    if (
-      evento.dia === diaAtivo &&
-      evento.mes === mes + 1 &&
-      evento.ano === ano
-    ) {
-      evento.eventos.forEach((evento) => {
-        if (evento.title === tituloEvento) {
-          eventoExiste = true;
-        }
-      });
-    }
-  });
-  if (eventoExiste) {
-    alert("Evento já adicionado");
-    return;
-  }
-  const novoEvento = {
-    title: tituloEvento,
-    time: horaInicio + " - " + horaFim,
-    status: false
-  };
-  console.log(novoEvento);
-  console.log(diaAtivo);
-  let eventoAdicionado = false;
-  if (eventosArr.length > 0) {
-    eventosArr.forEach((item) => {
-      if (
-        item.dia === diaAtivo &&
-        item.mes === mes + 1 &&
-        item.ano === ano
-      ) {
-        item.eventos.push(novoEvento);
-        eventoAdicionado = true;
-      }
-    });
-  }
+//   const horaInicio = converterHora(horaInicioEvento);
+//   const horaFim = converterHora(horaFimEvento);
 
-  if (!eventoAdicionado) {
-    eventosArr.push({
-      dia: diaAtivo,
-      mes: mes + 1,
-      ano: ano,
-      eventos: [novoEvento],
-    });
-  }
+//   // Verificar se o evento já existe
+//   let eventoExiste = false;
+//   eventosArr.forEach((evento) => {
+//     if (
+//       evento.dia === diaAtivo &&
+//       evento.mes === mes + 1 &&
+//       evento.ano === ano
+//     ) {
+//       evento.eventos.forEach((evento) => {
+//         if (evento.title === tituloEvento) {
+//           eventoExiste = true;
+//         }
+//       });
+//     }
+//   });
+//   if (eventoExiste) {
+//     alert("Evento já adicionado");
+//     return;
+//   }
 
-  console.log(eventosArr);
-  wrapperAdicionarEvento.classList.remove("active");
-  tituloAdicionarEvento.value = "";
-  horaInicioAdicionarEvento.value = "";
-  horaFimAdicionarEvento.value = "";
-  atualizarEventos(diaAtivo);
-  //
-  const diaAtivoEl = document.querySelector(".day.active");
-  if (!diaAtivoEl.classList.contains("event")) {
-    diaAtivoEl.classList.add("event");
-  }
-});
+//   const novoEvento = {
+//     title: tituloEvento,
+//     time: horaInicio + " - " + horaFim,
+//     status: false
+//   };
+//   console.log(novoEvento);
+//   console.log(diaAtivo);
+//   let eventoAdicionado = false;
+//   if (eventosArr.length > 0) {
+//     eventosArr.forEach((item) => {
+//       if (
+//         item.dia === diaAtivo &&
+//         item.mes === mes + 1 &&
+//         item.ano === ano
+//       ) {
+//         item.eventos.push(novoEvento);
+//         eventoAdicionado = true;
+//       }
+//     });
+//   }
+
+//   if (!eventoAdicionado) {
+//     eventosArr.push({
+//       dia: diaAtivo,
+//       mes: mes + 1,
+//       ano: ano,
+//       eventos: [novoEvento],
+//     });
+//   }
+
+//   // Criar eventos automáticos com base no nível de complexidade
+//   criarEventosAutomaticos(nivelComplexidade, tituloEvento, diaAtivo, mes + 1, ano, eventosArr);
+
+//   console.log(eventosArr);
+//   wrapperAdicionarEvento.classList.remove("active");
+//   tituloAdicionarEvento.value = "";
+//   horaInicioAdicionarEvento.value = "";
+//   horaFimAdicionarEvento.value = "";
+//   atualizarEventos(diaAtivo);
+
+//   const diaAtivoEl = document.querySelector(".day.active");
+//   if (!diaAtivoEl.classList.contains("event")) {
+//     diaAtivoEl.classList.add("event");
+//   }
+// });
 
 //deletar evento ao clicar
 // containerEventos.addEventListener("click", (e) => {
@@ -513,7 +520,7 @@ containerEventos.addEventListener("click", (e) => {
       
       const container = document.querySelector('.container');
       const right = container.querySelector('.right');
-      const events = right.querySelector('.events');
+      const events = right
       const addEventWrapper = document.createElement("div");
       addEventWrapper.classList.add("add-event-wrapper", "active");
 
@@ -620,12 +627,246 @@ function obterEventos() {
   eventosArr.push(...JSON.parse(localStorage.getItem("eventos")));
 }
 
+// function converterHora(hora) {
+//   let horaArr = hora.split(":");
+//   let horaHora = horaArr[0];
+//   let horaMin = horaArr[1];
+//   let formatoHora = horaHora >= 12 ? "PM" : "AM";
+//   horaHora = horaHora % 12 || 12;
+//   hora = horaHora + ":" + horaMin + " " + formatoHora;
+//   return hora;
+// }
 function converterHora(hora) {
   let horaArr = hora.split(":");
-  let horaHora = horaArr[0];
+  let horaHora = parseInt(horaArr[0]);
   let horaMin = horaArr[1];
   let formatoHora = horaHora >= 12 ? "PM" : "AM";
-  horaHora = horaHora % 12 || 12;
-  hora = horaHora + ":" + horaMin + " " + formatoHora;
+  horaHora = horaHora % 12 || 0;
+  if (formatoHora === "PM") {
+    horaHora += 12;
+  }
+  hora = horaHora.toString().padStart(2, "0") + ":" + horaMin;
   return hora;
 }
+
+
+// Função para criar eventos automáticos
+function criarEventosAutomaticos(nivelComplexidade, tituloEvento, diaEventoPrincipal, mesEventoPrincipal, anoEventoPrincipal, eventosArr) {
+  const niveis = {
+    novato: 1,
+    aventureiro: 2,
+    cavaleiro: 3,
+    lendario: 4,
+    Codigo_Sombrio: 5
+  };
+
+  const quantidadeEventos = niveis[nivelComplexidade];
+  if (quantidadeEventos > 0) {
+    const hoje = new Date();
+    const dataEventoPrincipal = new Date(anoEventoPrincipal, mesEventoPrincipal - 1, diaEventoPrincipal);
+    const diasDisponiveis = Math.ceil((dataEventoPrincipal - hoje) / (1000 * 60 * 60 * 24));
+
+    if (diasDisponiveis < quantidadeEventos) {
+      console.error("Não há dias suficientes entre hoje e a data do evento principal.");
+      return;
+    }
+
+    const intervaloDias = Math.floor(diasDisponiveis / quantidadeEventos);
+
+    let eventosCriados = 0;
+    let dataEvento = new Date(hoje);
+
+    while (eventosCriados < quantidadeEventos) {
+      if (eventosCriados === quantidadeEventos - 1) {
+        // Último evento - ajusta para um dia antes do evento principal, se possível
+        dataEvento.setDate(dataEvento.getDate() + intervaloDias - 1);
+        if (dataEvento >= dataEventoPrincipal) {
+          dataEvento.setDate(dataEventoPrincipal.getDate() - 1);
+        }
+      } else {
+        dataEvento.setDate(dataEvento.getDate() + intervaloDias); // Adiciona o intervalo de dias
+      }
+
+      const novoTitulo = `${tituloEvento} - Quest Épico ${eventosCriados + 1}`;
+      const horaInicioEvento = gerarHoraAleatoria();
+      const horaFimEvento = gerarHoraFim(horaInicioEvento);
+
+      const novoEvento = {
+        title: novoTitulo,
+        time: horaInicioEvento + " - " + horaFimEvento,
+        status: false
+      };
+
+      let eventoAdicionado = false;
+      eventosArr.forEach((item) => {
+        if (item.dia === dataEvento.getDate() &&
+          item.mes === dataEvento.getMonth() + 1 &&
+          item.ano === dataEvento.getFullYear()) {
+          item.eventos.push(novoEvento);
+          eventoAdicionado = true;
+        }
+      });
+
+      if (!eventoAdicionado) {
+        eventosArr.push({
+          dia: dataEvento.getDate(),
+          mes: dataEvento.getMonth() + 1,
+          ano: dataEvento.getFullYear(),
+          eventos: [novoEvento],
+        });
+      }
+
+      eventosCriados++;
+    }
+
+    salvarEventos();
+  }
+}
+
+
+
+function gerarHoraAleatoria() {
+  const hora = Math.floor(Math.random() * (23 - 8 + 1)) + 8;
+  const minutos = Math.floor(Math.random() * 60);
+  const horaStr = hora < 10 ? `0${hora}` : `${hora}`;
+  const minutosStr = minutos < 10 ? `0${minutos}` : `${minutos}`;
+  return `${horaStr}:${minutosStr}`;
+}
+
+function gerarHoraFim(horaInicio) {
+  const [hora, minutos] = horaInicio.split(':').map(Number);
+  const duracao = Math.floor(Math.random() * (60 - 20 + 1)) + 20;  // Duração entre 20 minutos e 1 hora
+  const novaHora = new Date();
+  novaHora.setHours(hora);
+  novaHora.setMinutes(minutos + duracao);
+  const horaFim = novaHora.getHours();
+  const minutosFim = novaHora.getMinutes();
+  const horaFimStr = horaFim < 10 ? `0${horaFim}` : `${horaFim}`;
+  const minutosFimStr = minutosFim < 10 ? `0${minutosFim}` : `${minutosFim}`;
+  return `${horaFimStr}:${minutosFimStr}`;
+}
+
+// Adicionar evento em eventosArr
+btnSubmeterAdicionarEvento.addEventListener("click", () => {
+  const tituloEvento = tituloAdicionarEvento.value;
+  const horaInicioEvento = horaInicioAdicionarEvento.value;
+  const horaFimEvento = horaFimAdicionarEvento.value;
+  const nivelComplexidade = document.getElementById('mySelect').value; // Adicionar a seleção do nível de complexidade
+
+  if (tituloEvento === "" || horaInicioEvento === "" || horaFimEvento === "") {
+    alert("Por favor, preencha todos os campos");
+    return;
+  }
+
+  // Verificar o formato das horas
+  const horaInicioArr = horaInicioEvento.split(":");
+  const horaFimArr = horaFimEvento.split(":");
+  if (
+    horaInicioArr.length !== 2 ||
+    horaFimArr.length !== 2 ||
+    horaInicioArr[0] > 23 ||
+    horaInicioArr[1] > 59 ||
+    horaFimArr[0] > 23 ||
+    horaFimArr[1] > 59
+  ) {
+    alert("Formato de Hora Inválido");
+    return;
+  }
+
+  const horaInicio = converterHora(horaInicioEvento);
+  const horaFim = converterHora(horaFimEvento);
+
+  // Verificar se o evento já existe
+  let eventoExiste = false;
+  eventosArr.forEach((evento) => {
+    if (
+      evento.dia === diaAtivo &&
+      evento.mes === mes + 1 &&
+      evento.ano === ano
+    ) {
+      evento.eventos.forEach((evento) => {
+        if (evento.title === tituloEvento) {
+          eventoExiste = true;
+        }
+      });
+    }
+  });
+  if (eventoExiste) {
+    alert("Evento já adicionado");
+    return;
+  }
+
+  const novoEvento = {
+    title: tituloEvento,
+    time: horaInicio + " - " + horaFim,
+    status: false
+  };
+  console.log(novoEvento);
+  console.log(diaAtivo);
+  let eventoAdicionado = false;
+  if (eventosArr.length > 0) {
+    eventosArr.forEach((item) => {
+      if (
+        item.dia === diaAtivo &&
+        item.mes === mes + 1 &&
+        item.ano === ano
+      ) {
+        item.eventos.push(novoEvento);
+        eventoAdicionado = true;
+      }
+    });
+  }
+
+  if (!eventoAdicionado) {
+    eventosArr.push({
+      dia: diaAtivo,
+      mes: mes + 1,
+      ano: ano,
+      eventos: [novoEvento],
+    });
+  }
+
+  // Criar eventos automáticos com base no nível de complexidade
+  criarEventosAutomaticos(nivelComplexidade, tituloEvento, diaAtivo, mes + 1, ano, eventosArr);
+
+  console.log(eventosArr);
+  wrapperAdicionarEvento.classList.remove("active");
+  tituloAdicionarEvento.value = "";
+  horaInicioAdicionarEvento.value = "";
+  horaFimAdicionarEvento.value = "";
+  atualizarEventos(diaAtivo);
+
+  const diaAtivoEl = document.querySelector(".day.active");
+  if (!diaAtivoEl.classList.contains("event")) {
+    diaAtivoEl.classList.add("event");
+  }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Função para verificar se há eventos registrados no localStorage para o dia atual
+  function checkEventsForToday() {
+      // Obter a data atual
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
+      today = yyyy + '-' + mm + '-' + dd;
+
+      // Verificar se há eventos registrados para o dia atual no localStorage
+      var events = JSON.parse(localStorage.getItem('events')) || {};
+      if (events[today]) {
+          // Se houver eventos, encontrar o elemento HTML correspondente e adicionar um indicador
+          var dayElement = document.querySelector('.day[data-date="' + today + '"]');
+          if (dayElement) {
+              var indicator = document.createElement('span');
+              indicator.textContent = ' *';
+              indicator.style.color = 'red'; // Estilize como preferir
+              dayElement.appendChild(indicator);
+          }
+      }
+  }
+
+  // Chamar a função para verificar eventos ao carregar a página
+  checkEventsForToday();
+});
+

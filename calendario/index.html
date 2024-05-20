@@ -21,6 +21,7 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <title>Calendário com Eventos</title>
+    <script src="http://code.jquery.com/jquery-2.0.3.js"></script>
   </head>
   <body>
     <div class="container">
@@ -79,6 +80,17 @@
                 class="event-time-to"
               />
             </div>
+            <div class="add-event-input">
+              <select id="mySelect">
+                <option value="novato">Novato</option>
+                <option value="aventureiro">Aventureiro</option>
+                <option value="cavaleiro">Cavaleiro</option>
+                <option value="lendario">Paladino</option>
+                <option value="Codigo_Sombrio">maldição Suprema</option>
+                placeholder="Complexidade"
+                class="event-complex"
+              </select>
+            </div>
           </div>
           <div class="add-event-footer">
             <button class="add-event-btn">Adicionar Evento</button>
@@ -91,12 +103,13 @@
     </div>
     <div class="credits">
       <p>
-        Criado por azul escuro violeta
+        Criado por azul escuro violeta (Roses are Red, Violets are Blue Unexpected '}' on line 32.)
         <a href="" target="_blank"></a>
       </p>
     </div>
 
     <script src="js/script.js"></script>
+    <script src="js/auto_events.js" defer></script>
 
   </body>
   </html>
