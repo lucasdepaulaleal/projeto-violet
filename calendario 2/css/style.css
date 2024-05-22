@@ -28,6 +28,10 @@ body {
   justify-content: center;
   padding-bottom: 30px;
   background-color: #e2e1dc;
+  background-image: url('../imagens/2151322964.jpg');
+  background-size: cover; /*Ajusta a imagem para cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem no fundo */
+   background-repeat: no-repeat; /*Evita que a imagem se repita */
 }
 .container {
   position: relative;
@@ -38,7 +42,7 @@ body {
   color: #fff;
   display: flex;
   border-radius: 10px;
-  background-color: #1A042E;
+  background-color: #1a042ed8;
   /* background-image: url('imagens/_dacb5e42-0a56-42f5-9c23-6969e9d038ec_out.jpg');
   background-size: cover; */
 }
