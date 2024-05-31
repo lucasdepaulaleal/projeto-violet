@@ -70,17 +70,17 @@ function iniciarCalendario() {
   }
 
   for (let i = 1; i <= ultimoData; i++) {
-    //checar se evento é
     let evento = false;
     eventosArr.forEach((eventoObj) => {
       if (
-        eventoObj.diaSemana === i &&
+        eventoObj.dia === i &&
         eventoObj.mes === mes + 1 &&
         eventoObj.ano === ano
       ) {
         evento = true;
       }
     });
+
     if (
       i === new Date().getDate() &&
       ano === new Date().getFullYear() &&
@@ -98,7 +98,7 @@ function iniciarCalendario() {
       if (evento) {
         dias += `<div class="day event">${i}</div>`;
       } else {
-        dias += `<div class="day ">${i}</div>`;
+        dias += `<div class="day">${i}</div>`;
       }
     }
   }
@@ -108,7 +108,9 @@ function iniciarCalendario() {
   }
   containerDias.innerHTML = dias;
   adicionarOuvinte();
+  contarEventosConcluidos(); // Chama a função aqui
 }
+
 
 //adicionar mes e ano
 function mesAnterior() {
@@ -239,7 +241,8 @@ function atualizarEventos(data) {
       ano === evento.ano
     ) {
       evento.eventos.forEach((evento) => {
-        eventos += `<div class="event">
+        let eventClass = evento.status ? 'event-complete' : 'event';
+        eventos += `<div class="${eventClass}">
             <div class="title">
               <i class="fas fa-circle"></i>
               <h3 class="event-title">${evento.title}</h3>
@@ -257,6 +260,35 @@ function atualizarEventos(data) {
         </div>`;
   }
   containerEventos.innerHTML = eventos;
+
+  // Reaplicar a classe `event` aos dias com eventos do mês atual
+  const dias = document.querySelectorAll(".day");
+  dias.forEach((dia) => {
+    dia.classList.remove("event");
+    dia.removeAttribute("data-progress");
+    dia.style.setProperty('--progress', 0);
+  });
+
+  eventosArr.forEach((eventoObj) => {
+    if (
+      eventoObj.mes === mes + 1 &&
+      eventoObj.ano === ano
+    ) {
+      dias.forEach((dia) => {
+        const diaNumero = parseInt(dia.innerText);
+        const diaClasse = dia.classList.contains("prev-date") || dia.classList.contains("next-date");
+        if (diaNumero === eventoObj.dia && !diaClasse) {
+          dia.classList.add("event");
+          const totalEventos = eventoObj.eventos.length;
+          const eventosConcluidos = eventoObj.eventos.filter(evento => evento.status).length;
+          const progresso = totalEventos > 0 ? (eventosConcluidos / totalEventos) : 0;
+          dia.style.setProperty('--progress', progresso);
+          dia.setAttribute("data-progress", progresso);
+        }
+      });
+    }
+  });
+
   salvarEventos();
 }
 
@@ -478,10 +510,7 @@ containerEventos.addEventListener("click", (e) => {
         localStorage.setItem("eventos", JSON.stringify(eventosArr));
         atualizarEventos(diaAtivo);
         addEventWrapper.remove(); // Fechando a tela do evento
-        
-        
-    });
-    
+      });
 
       const deleteEventBtn = document.createElement("button");
       deleteEventBtn.classList.add("add-event-btn");
@@ -500,6 +529,15 @@ containerEventos.addEventListener("click", (e) => {
               );
               if (eventoIndex !== -1) {
                 evento.eventos.splice(eventoIndex, 1);
+                // Remover o evento do array principal se não houver mais eventos no dia
+                if (evento.eventos.length === 0) {
+                  const diaIndex = eventosArr.findIndex(
+                    (e) => e.dia === diaAtivo && e.mes === mes + 1 && e.ano === ano
+                  );
+                  if (diaIndex !== -1) {
+                    eventosArr.splice(diaIndex, 1);
+                  }
+                }
                 // Atualizar eventos na interface
                 atualizarEventos(diaAtivo);
                 addEventWrapper.remove(); // Fechando a tela do evento
@@ -517,10 +555,10 @@ containerEventos.addEventListener("click", (e) => {
       addEventFooter.appendChild(markCompleteBtn);
       addEventFooter.appendChild(deleteEventBtn);
       addEventFooter.appendChild(closeBtn);
-      
+
       const container = document.querySelector('.container');
       const right = container.querySelector('.right');
-      const events = right
+      const events = right.querySelector('.events');
       const addEventWrapper = document.createElement("div");
       addEventWrapper.classList.add("add-event-wrapper", "active");
 
@@ -574,45 +612,6 @@ containerEventos.addEventListener("click", (e) => {
     }
   }
 });
-
-function atualizarEventos(data) {
-  let eventos = "";
-  eventosArr.forEach((evento) => {
-    if (
-      data === evento.dia &&
-      mes + 1 === evento.mes &&
-      ano === evento.ano
-    ) {
-      evento.eventos.forEach((evento) => {
-        let eventClass = evento.status ? 'event-complete' : 'event';
-        eventos += `<div class="${eventClass}">
-            <div class="title">
-              <i class="fas fa-circle"></i>
-              <h3 class="event-title">${evento.title}</h3>
-            </div>
-            <div class="event-time">
-              <span class="event-time">${evento.time}</span>
-            </div>
-        </div>`;
-      });
-    }
-  });
-  if (eventos === "") {
-    eventos = `<div class="no-event">
-            <h3>Sem Eventos</h3>
-        </div>`;
-  }
-  containerEventos.innerHTML = eventos;
-  salvarEventos();
-}
-
-
-
-
-
-
-
-
 
 //salvar evento na local storage
 function salvarEventos() {
@@ -869,4 +868,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Chamar a função para verificar eventos ao carregar a página
   checkEventsForToday();
 });
+function contarEventosConcluidos() {
+  let contador = 0;
+  eventosArr.forEach((evento) => {
+    evento.eventos.forEach((evento) => {
+      if (evento.status) {
+        contador++;
+      }
+    });
+  });
+  document.querySelector(".contador").innerText = contador;
+}
 
