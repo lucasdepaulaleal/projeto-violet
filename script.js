@@ -32,6 +32,12 @@ function atualizarReino() {
     const imagemReino = document.getElementById('reinoImage');
     const fase = Math.floor(tarefasConcluidas / 15) + 1;
     imagemReino.src = `imagens/reino${fase}.jpg`;
+
+    /*texto do reino*/
+    fetch(`textos/texto_feudo${fase}.txt`)
+        .then(response => response.text())
+        .then(text => document.getElementById('texto').innerText = text)
+        .catch(error => console.error('Erro ao carregar o arquivo:', error));
 }
 
 function salvarTarefas() {
@@ -45,9 +51,3 @@ function salvarTarefas() {
     .then(response => response.text())
     .then(data => console.log(data));
 }
-
-/*texto do reino*/
-fetch('texto_feudo1.txt')
-    .then(response => response.text())
-    .then(text => document.getElementById('texto').innerText = text)
-    .catch(error => console.error('Erro ao carregar o arquivo:', error));
