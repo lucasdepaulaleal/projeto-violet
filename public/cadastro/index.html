@@ -14,8 +14,8 @@
         </div>
         <div class="form-box">
             <h2>Criar Conta</h2>
-            <p> Já é um membro? <a href="../login/index.html"> Login </a> </p>
-            <form id="register-form">
+            <p> Já é um membro? <a href="#"> Login </a> </p>
+            <form action="#">
                 <div class="input-group">
                     <label for="nome"> Nome Completo</label>
                     <input type="text" id="nome" placeholder="Digite o seu nome completo" required>
@@ -24,11 +24,13 @@
                 <div class="input-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" placeholder="Digite o seu email" required>
+                    <div id="email-error" class="error-message"></div> <!-- Adicionado aqui -->
                 </div>
 
                 <div class="input-group w50">
                     <label for="senha">Senha</label>
                     <input type="password" id="senha" placeholder="Digite sua senha" required>
+                    <div id="password-strength"></div> <!-- Adicionado aqui -->
                 </div>
 
                 <div class="input-group w50">
@@ -37,11 +39,12 @@
                 </div>
 
                 <div class="input-group">
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit" id="submit-btn">Cadastrar</button>
                 </div>
+
             </form>
         </div>
     </div>
-    <script src="register.js"></script>
+    <script src="script.js"></script> <!-- Adicionado aqui -->
 </body>
 </html>
