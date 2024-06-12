@@ -9,7 +9,7 @@ function concluirTarefa() {
 function atualizarReino() {
   const imagemReino = document.getElementById("reinoImage");
   const fase = Math.floor(tarefasConcluidas / 5) + 1;
-  imagemReino.src = `imagens/reino${fase}.jpg`;
+  imagemReino.src = `reino${fase}.jpg`;
 }
 document.addEventListener("DOMContentLoaded", (event) => {
   fetch("load_tarefas.php")
@@ -32,7 +32,7 @@ function concluirTarefa() {
 function atualizarReino() {
   const imagemReino = document.getElementById("reinoImage");
   const fase = Math.floor(tarefasConcluidas / 5) + 1;
-  imagemReino.src = `imagens/reino${fase}.jpg`;
+  imagemReino.src = `reino${fase}.jpg`;
 }
 
 function salvarTarefas() {
