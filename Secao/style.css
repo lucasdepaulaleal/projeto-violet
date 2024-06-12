@@ -1,0 +1,20 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(#2b1055, #7597de);
+  overflow-x: hidden;
+}
+.reino {
+  width: 300px;
+  height: auto;
+  border-radius: 50px;
+}
+button {
+  text-decoration: none;
+  border-radius: 20px;
+  color: #fff;
+}
+button:hover,
+button.active {
+  background: #fff;
+  color: #2b1055;
+}
