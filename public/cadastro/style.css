@@ -88,7 +88,7 @@ form .input-group button{
     border-radius: 20px;
     outline: none;
     border: none;
-    margin-top: 15px;
+    margin-top: 5px;
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -117,5 +117,10 @@ form .input-group button{
     height: 10px;
     background-color: transparent;  
     border-radius: 20px;
+}
+
+#showPss {
+    cursor: pointer;
+    margin-top: 4px;
 }
 

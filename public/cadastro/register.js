@@ -82,24 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if(strength == 0) {
             strengthDisplay.style.width = "0%";
-
         } else if (strength <= 1 ) {
             //strengthDisplay.classList.add('weak');
 
             strengthDisplay.style.backgroundColor = "red";
-            strengthDisplay.style.width = "33%";
-
+            strengthDisplay.style.width = "20%";
         } else if (strength <= 3) {
             //strengthDisplay.classList.add('medium');
-
             strengthDisplay.style.backgroundColor = "yellow";
-            strengthDisplay.style.width = "66%";
-
+            strengthDisplay.style.width = "40%";
         } else {
             //strengthDisplay.classLis.add('strong');
-
             strengthDisplay.style.backgroundColor = "green";
-            strengthDisplay.style.width = "99%";
+            strengthDisplay.style.width = "60%";
 
         }
     }
@@ -115,3 +110,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+// Mostrar Senha
+
+function togglePassword(){
+    const psw = document.getElementById('senha');
+    const imagePsw = document.getElementById('showPss');
+    const confirmPsw = document.getElementById('Confirmarsenha');
+
+    if(psw.type == "password"){
+        psw.type = "text";
+        confirmPsw.type = "text";
+        imagePsw.src = '../assets/img/eye-opened.svg';
+    } else{
+        psw.type = "password";
+        confirmPsw.type = "password";
+        imagePsw.src = "../assets/img/eye-closed.svg";
+    }
+}
+
+
