@@ -111,3 +111,11 @@ form .input-group button{
         padding: 0;
     }
 }
+
+#password-strength {
+    margin-top: 5px;
+    height: 10px;
+    background-color: transparent;  
+    border-radius: 20px;
+}
+

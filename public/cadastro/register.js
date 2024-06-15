@@ -27,6 +27,8 @@ async function registerUser(nome, email, senha) {
     if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Erro na requisição');
+    } else{
+        console.log('funcionando')
     }
 
     return response.json();
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const strengthDisplay = document.getElementById('password-strength');
     const emailInput = document.getElementById('email');
     const emailError = document.getElementById('email-error');
-    const submitBtn = document.getElementById('submit-btn');
+    const submitBtn = document.getElementById('register-form');
 
     passwordInput.addEventListener('input', () => {
         const strength = calculatePasswordStrength(passwordInput.value);
@@ -76,13 +78,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function updateStrengthDisplay(strength) {
-        strengthDisplay.className = '';
-        if (strength <= 1) {
-            strengthDisplay.classList.add('weak');
+        // strengthDisplay.className = '';
+        
+        if(strength == 0) {
+            strengthDisplay.style.width = "0%";
+
+        } else if (strength <= 1 ) {
+            //strengthDisplay.classList.add('weak');
+
+            strengthDisplay.style.backgroundColor = "red";
+            strengthDisplay.style.width = "33%";
+
         } else if (strength <= 3) {
-            strengthDisplay.classList.add('medium');
+            //strengthDisplay.classList.add('medium');
+
+            strengthDisplay.style.backgroundColor = "yellow";
+            strengthDisplay.style.width = "66%";
+
         } else {
-            strengthDisplay.classList.add('strong');
+            //strengthDisplay.classLis.add('strong');
+
+            strengthDisplay.style.backgroundColor = "green";
+            strengthDisplay.style.width = "99%";
+
         }
     }
 
