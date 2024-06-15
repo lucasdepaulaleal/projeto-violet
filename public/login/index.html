@@ -15,7 +15,7 @@
         </div>
         <div class="right-login">
             <div class="card-login">
-                <h1>LOGIN</h1>
+                <h1>Faça seu login</h1>
                 <form id="login-form">
                     <div class="textfield">
                         <label for="usuario">Usuário</label>
@@ -23,9 +23,11 @@
                     </div>
                     <div class="textfield">
                         <label for="senha">Senha</label>
-                        <input type="password" name="senha" placeholder="Senha" required>
+                        <input type="password" name="senha" placeholder="Senha" id="senha" required>
+                        <img src="../assets/img/eye-closed-white.png" alt="mostrar senha" id="showPss" onclick="togglePassword()">
                     </div>
                     <button type="submit" class="btn-login">Entrar</button>
+                    <hr id="line">
                     <button type="button" class="btn-login"><a href="../cadastro/index.html">Cadastrar</a></button>
                 </form>
             </div>

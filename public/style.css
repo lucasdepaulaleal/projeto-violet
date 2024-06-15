@@ -106,7 +106,9 @@ button:hover {
 @media screen and (max-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr;
+    
   }
+
 }
 
 .back {
@@ -205,9 +207,11 @@ main {
   transition: 0.3s;
 }
 
-@media (max-width: 999px) {
+@media (max-width: 768px) {
   body {
     overflow-x: hidden;
+    width: 100%;
+    margin: 0 auto;
   }
   .nav-list {
     position: absolute;

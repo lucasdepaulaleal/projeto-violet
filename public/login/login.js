@@ -23,3 +23,17 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         alert('Erro no login: ' + data.message);
     }
 });
+
+
+function togglePassword(){
+    const psw = document.getElementById('senha');
+    const imagePsw = document.getElementById('showPss');
+
+    if(psw.type == "password"){
+        psw.type = "text";
+        imagePsw.src = '../assets/img/eye-opened-white.png';
+    } else{
+        psw.type = "password";
+        imagePsw.src = "../assets/img/eye-closed-white.png";
+    }
+}
