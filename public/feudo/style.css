@@ -1,0 +1,91 @@
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    /*backgorund*/
+    background-image: url('imagens/fundo.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.reino {
+    width: 45vw;
+    height: auto;
+    border-radius: 25px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.texto {
+    font-family: "MedievalSharp", cursive;
+    font-size: 18px;
+    color: #000000; 
+    background-image: url('imagens/placa.webp');
+    padding: 20px; 
+    border-radius: 10px;
+    margin-top: 20px;
+    
+}
+    
+button {
+    text-decoration: none;
+    border-radius: 20px;
+    color: #fff;
+}
+    
+button:hover, button.active {
+    background: #fff;
+    color: #2b1055;
+    background-position: right;
+}
+
+.titulo{
+    text-align: center;
+    font-family: "MedievalSharp", cursive;
+}
+
+h1{
+    background-color: #2b204f; 
+    color: #FFD700; 
+    padding: 20px; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+    font-size: 36px;
+    border: 2px solid #8970cc; 
+    border-radius: 10px;
+    width: 50%; 
+    margin: 0 auto; 
+}
+
+/*Fonte*/
+.medievalsharp-regular {
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  .birthstone-bounce-regular {
+    font-family: "Birthstone Bounce", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .birthstone-bounce-medium {
+    font-family: "Birthstone Bounce", cursive;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+/*fundo de pergaminho */
+@keyframes parchment {
+
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+}
+  
+
