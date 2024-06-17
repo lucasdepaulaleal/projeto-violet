@@ -1,4 +1,3 @@
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,7 +13,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px; 
+    padding: 15px 20px; 
     height: 5vh;
 }
 
@@ -45,6 +44,7 @@ height: auto;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .integrante {
@@ -68,6 +68,21 @@ height: auto;
     box-sizing: border-box;
 }
 
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+  .integrante {
+      flex: 0 1 calc(50% - 20px);
+      max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 400px) {
+  .integrante {
+      flex: 0 1 calc(100% - 20px);
+      max-width: calc(100% - 20px);
+  }
+}
+
 .escrita{
     color: rgb(255, 255, 255);
     text-align: center;
@@ -83,7 +98,7 @@ height: auto;
     padding: 2%;
 }
 
-/*Butão de sair INICIO*/
+/*Botão de sair INICIO*/
 .btn-conteiner {
   display: flex;
   justify-content: center;
@@ -189,4 +204,4 @@ height: auto;
     outline-offset: 0;
   }
 }
-  /*Butão de sair FIM*/
+  /*Botão de sair FIM*/

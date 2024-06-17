@@ -5,6 +5,11 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+html, body{
+  height: 100%;
+  overflow-x: hidden;
+}
+
 a {
   color: white;
   text-decoration: none;
@@ -121,7 +126,7 @@ button:hover {
   border-radius: 70px;
   color: white;
   margin: 10px 10px;
-  padding: 5%;
+  padding: 10%;
 }
 
 .secondSecond-container {
@@ -131,7 +136,7 @@ button:hover {
   margin: 20px 40px;
   padding: 7%;
   width: 65%;
-  height: 50%;
+  height: 45%;
   transform: translateY(50%);
 }
 
@@ -263,4 +268,24 @@ main {
   left: 10px;
   gap: 0px;
   opacity: 0px;
+}
+
+/* Diminuir a fonte para celulares */
+@media (max-width: 768px) {
+  .column-left h1 {
+    font-size: 2rem;
+  }
+
+  .column-left p {
+    font-size: 1rem;
+  }
+
+  nav a {
+    font-size: 0.875rem; /* 14px */
+  }
+
+  button {
+    padding: 0.75rem 2rem;
+    font-size: 0.875rem; /* 14px */
+  }
 }
