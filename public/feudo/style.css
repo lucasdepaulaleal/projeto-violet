@@ -24,12 +24,12 @@ body {
 
 .texto {
     font-family: "MedievalSharp", cursive;
-    font-size: 18px;
+    font-size: 27px;
     color: #000000; 
     background-image: url('imagens/placa.webp');
-    padding: 20px; 
-    border-radius: 10px;
-    margin-top: 20px;
+    padding: 112px; 
+    border-radius: 200px;
+    margin-top: 10px;
     
 }
     
