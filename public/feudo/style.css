@@ -24,12 +24,12 @@ body {
 
 .texto {
     font-family: "MedievalSharp", cursive;
-    font-size: 27px;
+    font-size: 18px;
     color: #000000; 
-    background-image: url('imagens/placa.webp');
-    padding: 112px; 
-    border-radius: 200px;
-    margin-top: 10px;
+    background-image: url('imagens/pergaminho.webp'); 
+    padding: 20px; 
+    border-radius: 10px;
+    margin-top: 20px;
     
 }
     
@@ -83,9 +83,7 @@ h1{
 
 /*fundo de pergaminho */
 @keyframes parchment {
-
     0% { background-position: 0 0; }
     100% { background-position: 100% 0; }
 }
   
-
