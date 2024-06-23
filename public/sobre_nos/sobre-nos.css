@@ -1,35 +1,34 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-image: url('lavanda.webp'); 
-    background-size: cover; 
-    background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('lavanda.webp'); 
+  background-size: cover; 
+  background-repeat: no-repeat;
 }
 
 .header{
-    background-color: rgba(30, 4, 136, 0.5); /* Cor de fundo com transparência */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px; 
-    height: 5vh;
+  background-color: rgba(30, 4, 136, 0.5); /* Cor de fundo com transparência */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px; 
+  height: 5vh;
 }
 
 .logo {
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: #ffffff;
-    font-size: 1.5rem;
-    font-weight: bold;
-    font-style: italic;
-    padding: 2rem;
-    display: block;
-    max-width: 50px;
-    height: auto;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-style: italic;
+  padding: 2rem;
+  display: block;
+  max-width: 50px;
+  height: auto;
 }
 
 .logo img{
@@ -39,154 +38,170 @@ height: auto;
 }
 
 .container {    
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 55px;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 55px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .integrante {
-    text-align: center;
-    margin-bottom: 60px;
-    flex: 0 1 calc(25% - 20px);
-    max-width: calc(25% - 20px);
-    box-sizing: border-box;
-    color: white;
-    font-weight: bolder;
-    text-shadow: 2px 2px black;
+  text-align: center;
+  margin-bottom: 60px;
+  flex: 0 1 calc(25% - 20px);
+  max-width: calc(25% - 20px);
+  box-sizing: border-box;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
 }
 
 .integrante img {
-    width: 90px; /* Reduzindo o tamanho da imagem */
-    height: 90px; /* Mantendo a proporção da imagem */
-    border-radius: 50%; /* Transformando a imagem em um círculo */
-    margin-bottom: 10px;
-    object-fit: cover; /* Redimensionando a imagem para preencher o círculo */
-    border: 2px solid rgb(0, 0, 0); 
-    box-sizing: border-box;
+  width: 90px; /* Reduzindo o tamanho da imagem */
+  height: 90px; /* Mantendo a proporção da imagem */
+  border-radius: 50%; /* Transformando a imagem em um círculo */
+  margin-bottom: 10px;
+  object-fit: cover; /* Redimensionando a imagem para preencher o círculo */
+  border: 2px solid rgb(0, 0, 0); 
+  box-sizing: border-box;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+.integrante {
+    flex: 0 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+}
+}
+
+@media (max-width: 400px) {
+.integrante {
+    flex: 0 1 calc(100% - 20px);
+    max-width: calc(100% - 20px);
+}
 }
 
 .escrita{
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin-top: 1px;
-    font-size: large;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-top: 1px;
+  font-size: large;
 }
 
 .second-container {
-    background-color: hsla(283, 68%, 11%, 0.7);
-    border-radius: 50px;
-    color: white;
-    margin: 10.5%;
-    padding: 2%;
+  background-color: hsla(283, 68%, 11%, 0.7);
+  border-radius: 50px;
+  color: white;
+  margin: 10.5%;
+  padding: 2%;
 }
 
-/*Butão de sair INICIO*/
+/*Botão de sair INICIO*/
 .btn-conteiner {
-  display: flex;
-  justify-content: center;
-  --color-text: #ffffff;
-  --color-background: #510692;
-  --color-outline: #ff145b80;
-  --color-shadow: #00000080;
+display: flex;
+justify-content: center;
+--color-text: #ffffff;
+--color-background: #510692;
+--color-outline: #ff145b80;
+--color-shadow: #00000080;
 }
 
 .btn-content {
-  display: flex;
-  align-items: center;
-  padding: 0.5vh;
-  text-decoration: none;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 20px;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: 1s;
-  border-radius: 100px;
-  box-shadow: 0 0 0.2em 0 var(--color-background);
+display: flex;
+align-items: center;
+padding: 0.5vh;
+text-decoration: none;
+font-family: 'Poppins', sans-serif;
+font-weight: 600;
+font-size: 20px;
+color: var(--color-text);
+background: var(--color-background);
+transition: 1s;
+border-radius: 100px;
+box-shadow: 0 0 0.2em 0 var(--color-background);
 }
 
 .btn-content:hover, .btn-content:focus {
-  transition: 0.5s;
-  -webkit-animation: btn-content 1s;
-  animation: btn-content 1s;
-  outline: 0.1em solid transparent;
-  outline-offset: 0.2em;
-  box-shadow: 0 0 0.4em 0 var(--color-background);
+transition: 0.5s;
+-webkit-animation: btn-content 1s;
+animation: btn-content 1s;
+outline: 0.1em solid transparent;
+outline-offset: 0.2em;
+box-shadow: 0 0 0.4em 0 var(--color-background);
 }
 
 .btn-content .icon-arrow {
-  transition: 0.5s;
-  margin-right: 0px;
-  transform: scale(0.6);
+transition: 0.5s;
+margin-right: 0px;
+transform: scale(0.6);
 }
 
 .btn-content:hover .icon-arrow {
-  transition: 0.5s;
-  margin-right: 25px;
+transition: 0.5s;
+margin-right: 25px;
 }
 
 .icon-arrow {
-  width: 20px;
-  margin-left: 15px;
-  position: relative;
-  top: 6%;
+width: 20px;
+margin-left: 15px;
+position: relative;
+top: 6%;
 }
-  
+
 /* SVG */
 #arrow-icon-one {
-  transition: 0.4s;
-  transform: translateX(-60%);
+transition: 0.4s;
+transform: translateX(-60%);
 }
 
 #arrow-icon-two {
-  transition: 0.5s;
-  transform: translateX(-30%);
+transition: 0.5s;
+transform: translateX(-30%);
 }
 
 .btn-content:hover #arrow-icon-three {
-  animation: color_anim 1s infinite 0.2s;
+animation: color_anim 1s infinite 0.2s;
 }
 
 .btn-content:hover #arrow-icon-one {
-  transform: translateX(0%);
-  animation: color_anim 1s infinite 0.6s;
+transform: translateX(0%);
+animation: color_anim 1s infinite 0.6s;
 }
 
 .btn-content:hover #arrow-icon-two {
-  transform: translateX(0%);
-  animation: color_anim 1s infinite 0.4s;
+transform: translateX(0%);
+animation: color_anim 1s infinite 0.4s;
 }
 
 /* SVG animations */
 @keyframes color_anim {
-  0% {
-    fill: white;
-  }
+0% {
+  fill: white;
+}
 
-  50% {
-    fill: var(--color-background);
-  }
+50% {
+  fill: var(--color-background);
+}
 
-  100% {
-    fill: white;
-  }
+100% {
+  fill: white;
+}
 }
 
 /* Button animations */
 @-webkit-keyframes btn-content {
-  0% {
-    outline: 0.2em solid var(--color-background);
-    outline-offset: 0;
-  }
+0% {
+  outline: 0.2em solid var(--color-background);
+  outline-offset: 0;
+}
 }
 
 @keyframes btn-content {
-  0% {
-    outline: 0.2em solid var(--color-background);
-    outline-offset: 0;
-  }
+0% {
+  outline: 0.2em solid var(--color-background);
+  outline-offset: 0;
 }
-  /*Butão de sair FIM*/
+}
+/*Botão de sair FIM*/
