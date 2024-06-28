@@ -1,46 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projeto Violet</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="shortcut icon" href="../assets/img/favicon.svg" type="image/x-icon">
-  </head>
-  <body>
-    <header>
-      <ul>
-        <li><img src="Logo.webp" class="logo"></li>
-      </ul>
-      <ul class="nav-list">
-        <li><a href="#calendar">Calendário</a></li>
-        <li><a href="#">Progresso</a></li>
-        <li><a href="#">Perfil</a></li>
-      </ul>
-      <!--botão hamburguer-->
-      <div class="mobile-menu">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-      </div>
-      <!--fim do botão-->
-    </header>
-    <section>
-        <img src="stars.webp" id="stars">
-        <img src="moon.webp" id="moon">
-        <img src="montains_behind.webp" id="montains_behind">
-        <h2 id="text">Bem vindo, Usuário</h2>
-        <a href="#sec" id="btn">Explore</a>
-        <img src="montains_front.webp" id="montains_front">
-    </section>
-    <div class="sec" id="sec">
-        <h2>Calendário</h2>
-        <iframe src="../calendario/index.html" width="110%" height="1000px" frameborder="0" class="calendar" id="calendar"></iframe>
-        
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Violet</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <link rel="shortcut icon" href="../assets/img/favicon.svg" type="image/x-icon">
+  <style>
+    .calendar {
+      margin-bottom: 50px; /* Adiciona mais espaço entre os iframes */
+    }
+    .sec {
+      margin-bottom: 900px; /* Adiciona espaço extra na parte inferior da seção */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <ul>
+      <li><img src="Logo.webp" class="logo"></li>
+    </ul>
+    <ul class="nav-list">
+      <li><a href="#calendar">Calendário</a></li>
+      <li><a href="#">Progresso</a></li>
+      <li><a href="#">Perfil</a></li>
+    </ul>
+    <!-- botão hamburguer -->
+    <div class="mobile-menu">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
     </div>
-    <script src="mobile-navbar.js">
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
-  </body>
+    <!-- fim do botão -->
+  </header>
+  <section>
+    <img src="stars.webp" id="stars">
+    <img src="moon.webp" id="moon">
+    <img src="montains_behind.webp" id="montains_behind">
+    <h2 id="text">Bem vindo, Usuário</h2>
+    <a href="#sec" id="btn">Explore</a>
+    <img src="montains_front.webp" id="montains_front">
+  </section>
+  <div class="sec" id="calendar-section">
+    <h2>Calendário</h2>
+    <iframe src="../calendario/index.html" width="100%" height="1000px" frameborder="0" class="calendar" id="calendar"></iframe>
+  </div>
+  
+    <iframe src="../feudo/index.html" width="100%" height="1000px" frameborder="0" class="calendar" id="feudo"></iframe>
+  </div>
+  <script src="mobile-navbar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script>
+</body>
 </html>
